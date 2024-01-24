@@ -19,9 +19,7 @@ const components = {
 				children: [{
 					tag: 'img',
 					id: 'icon',
-					style: {
-						width: '2.5rem'
-					},
+					className: 'bottomIcons',
 					src: 'img/transaction_arrows.png'
 				}]
 			}]
@@ -128,13 +126,29 @@ components.login = {
 	}
 }
 
-const bottomBtn = text => ({
+
+const bottomBtn = imgFilename => ({
 	tag: 'div',
-	text: text,
-	className: 'center-x flex-1-0'
+	className: 'center-x flex-1-0',
+	onclick: event => {
+		console.log(event.target);
+	},
+	children: [{
+		tag: 'img',
+		id: imgFilename,
+		className: 'bottomIcons',
+		src: 'img/'+ imgFilename
+	}]
 });
 
-components.login.footer.children[0].children.push(bottomBtn('Home'), bottomBtn('Camera'), bottomBtn('Settings'));
+// const cameraBtn = imgFilename => {
+// 	const obj = bottomBtn(imgFilename);
+// 	obj.onclick = {
+// 		console.log("Camera boy");
+// 	};
+// };
+
+components.login.footer.children[0].children.push(bottomBtn('home-button.png'), cameraBtn('camera-button.png'), bottomBtn('profile-button.png'));
 
 components.login.content = {
 	tag: 'div',

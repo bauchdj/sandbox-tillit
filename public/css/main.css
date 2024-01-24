@@ -23,6 +23,10 @@ footer {
 	padding: 0.5rem;
 }
 
+.bottomIcons {
+	width: 2.5rem;
+}
+
 .navbar {
 	display: flex;
 	flex-direction: row;
