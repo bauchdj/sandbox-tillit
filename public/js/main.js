@@ -131,6 +131,7 @@ const bottomBtn = imgFilename => ({
 	tag: 'div',
 	className: 'center-x flex-1-0',
 	onclick: event => {
+		event.stopPropagation();
 		console.log(event.target);
 	},
 	children: [{
@@ -141,12 +142,13 @@ const bottomBtn = imgFilename => ({
 	}]
 });
 
-// const cameraBtn = imgFilename => {
-// 	const obj = bottomBtn(imgFilename);
-// 	obj.onclick = {
-// 		console.log("Camera boy");
-// 	};
-// };
+const cameraBtn = imgFilename => {
+	const obj = bottomBtn(imgFilename);
+	obj.onclick = event => {
+		console.log("Camera boy");
+	};
+	return obj;
+};
 
 components.login.footer.children[0].children.push(bottomBtn('home-button.png'), cameraBtn('camera-button.png'), bottomBtn('profile-button.png'));
 
