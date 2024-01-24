@@ -146,6 +146,7 @@ const cameraBtn = imgFilename => {
 	const obj = bottomBtn(imgFilename);
 	obj.onclick = event => {
 		console.log("Camera boy");
+		//setupCamera();
 	};
 	return obj;
 };
