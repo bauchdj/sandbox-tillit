@@ -22,7 +22,7 @@ const components = {
 					style: {
 						width: '2.5rem'
 					},
-					src: 'images/'
+					src: 'img/transaction_arrows.png'
 				}]
 			}]
 		}]
@@ -122,14 +122,19 @@ components.login = {
 		tag: 'footer',
 		children: [{
 			tag: 'div',
-			text: 'David Bauch'
-		}, {
-			tag: 'a',
-			href: 'https://github.com/bauchdj/startup-file-browser-web-app/',
-			text: 'GitHub'
+			className: 'flex-r',
+			children: []
 		}]
 	}
 }
+
+const bottomBtn = text => ({
+	tag: 'div',
+	text: text,
+	className: 'center-x flex-1-0'
+});
+
+components.login.footer.children[0].children.push(bottomBtn('Home'), bottomBtn('Camera'), bottomBtn('Settings'));
 
 components.login.content = {
 	tag: 'div',

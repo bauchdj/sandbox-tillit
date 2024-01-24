@@ -51,6 +51,10 @@ footer {
 	flex: 0 1 auto;
 }
 
+.flex-1-0 {
+	flex: 1 0 auto;
+}
+
 .fill-screen {
 	position: fixed;
 	inset: 0px;
