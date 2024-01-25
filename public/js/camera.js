@@ -52,29 +52,53 @@ function onDownloadPhoto() {
 }
 
 function onTakeAPhoto() {
-	// TODO toggle display video to none
-	canvas.getContext('2d').drawImage(video, 0, 0, video.width, video.height);
+    canvas.getContext('2d').drawImage(video, 0, 0, video.width, video.height);
 
-	// Add a save button to the left of the overlay
-	const saveButton = document.createElement('button');
-	saveButton.innerText = 'Save';
-	saveButton.className = 'overlay-button right-button';
-	saveButton.addEventListener('click', () => {
-		onDownloadPhoto();
-	});
-	overlay.appendChild(saveButton);
+    // Replace buttons
+    overlay.innerHTML = '';
+
+    const imgElement = document.createElement('img');
+    imgElement.src = canvas.toDataURL('image/png');
+    overlay.appendChild(imgElement);
+
+    // Save button
+    const saveButton = document.createElement('button');
+    saveButton.innerText = 'Save';
+    saveButton.className = 'overlay-button left-button';
+    saveButton.addEventListener('click', () => {
+        onDownloadPhoto();
+    });
+    overlay.appendChild(saveButton);
+
+    // Retake button
+    const retakeButton = document.createElement('button');
+    retakeButton.innerText = 'Retake Photo';
+    retakeButton.className = 'overlay-button middle-button';
+    retakeButton.addEventListener('click', () => {
+        initEvent();
+    });
+    overlay.appendChild(retakeButton);
+
+    // Close button
+    const closeButton = document.createElement('button');
+    closeButton.innerText = 'Close';
+    closeButton.className = 'overlay-button right-button';
+    closeButton.addEventListener('click', () => {
+        document.body.removeChild(components.popup.camera.el);
+    });
+    overlay.appendChild(closeButton);
 }
 
 function onLoadVideo() {
-	video.setAttribute('width', this.videoWidth);
-	video.setAttribute('height', this.videoHeight);
-	canvas.setAttribute('width', this.videoWidth);
-	canvas.setAttribute('height', this.videoHeight);
-	video.play();
+    video.setAttribute('width', this.videoWidth);
+    video.setAttribute('height', this.videoHeight);
+    canvas.setAttribute('width', this.videoWidth);
+    canvas.setAttribute('height', this.videoHeight);
+    video.play();
 }
 
 function onMediaStream(stream) {
-	if ('srcObject' in video) {
+    if ('srcObject' in video) {
 		video.srcObject = stream;
 	} else {
 		// TODO May need to remove this. Don't know what edge case this is...
@@ -84,16 +108,28 @@ function onMediaStream(stream) {
 		video.src = window.URL.createObjectURL(stream);
 	}
 
-	// Take picture
-	const takeButton = document.createElement('button');
-	takeButton.innerText = 'Take Photo';
-	takeButton.className = 'overlay-button left-button';
-	takeButton.addEventListener('click', () => {
-		onTakeAPhoto();
-	});
-	overlay.appendChild(takeButton);
+    // Take picture
+    const takeButton = document.createElement('button');
+    takeButton.innerText = 'Take Photo';
+    takeButton.className = 'overlay-button left-button';
+    takeButton.addEventListener('click', () => {
+        onTakeAPhoto();
+    });
+    overlay.appendChild(takeButton);
 
-	video.addEventListener('loadedmetadata', onLoadVideo);
+    // Close button
+    const closeButton = document.createElement('button');
+    closeButton.innerText = 'Close';
+    closeButton.className = 'overlay-button right-button';
+    closeButton.addEventListener('click', () => {
+        document.body.removeChild(components.popup.camera.el);
+    });
+    overlay.appendChild(closeButton);
+
+    // Add video to overlay
+    overlay.appendChild(video);
+
+    video.addEventListener('loadedmetadata', onLoadVideo);
 }
 
 function onMediaError(err) {
@@ -101,10 +137,12 @@ function onMediaError(err) {
 }
 
 function initEvent() {
-	navigator.mediaDevices
-		.getUserMedia({ video: true })
-		.then(onMediaStream)
-		.catch(onMediaError);
+    overlay.innerHTML = '';
+
+    navigator.mediaDevices
+        .getUserMedia({ video: true })
+        .then(onMediaStream)
+        .catch(onMediaError);
 }
 
 initElement();
