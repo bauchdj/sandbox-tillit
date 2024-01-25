@@ -52,6 +52,7 @@ function onDownloadPhoto() {
 }
 
 function onTakeAPhoto() {
+	// TODO toggle display video to none
 	canvas.getContext('2d').drawImage(video, 0, 0, video.width, video.height);
 
 	// Add a save button to the left of the overlay
