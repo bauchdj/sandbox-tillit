@@ -140,14 +140,13 @@ const bottomBtn = imgFilename => ({
 		className: 'bottomIcons',
 		src: 'img/'+ imgFilename
 	}],
-	el: null // Placeholder for the DOM element
 });
 
 const cameraBtn = imgFilename => {
 	const obj = bottomBtn(imgFilename);
-	obj.onclick = event => {
+	obj.onclick = async (event) => {
 		console.log("Camera boy");
-		setupCamera(obj);
+		await setupCamera();
 	};
 	return obj;
 };
