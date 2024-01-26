@@ -90,9 +90,6 @@ createForm = () => ({
 				}]
 			}, {
 				tag: 'div',
-				text: 'Guest login is guest and 2bemyguestlogin'
-			}, {
-				tag: 'div',
 				className: 'flex-r',
 				children: [{
 					tag: 'button',
