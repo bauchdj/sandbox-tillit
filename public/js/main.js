@@ -1,6 +1,7 @@
 const components = {
 	header: title => { return {
 		tag: 'header',
+		id: 'header',
 		children: [{
 			tag: 'nav',
 			className: 'navbar bg-body-tertiary',
@@ -27,105 +28,128 @@ const components = {
 	}}
 }
 
-components.login = {
-	header: components.header("Login page"),
+createForm = () => ({
+	tag: 'form',
+	action: 'login',
+	method: 'post',
+	onsubmit: event => {
+		event.preventDefault();
 
-	form: {
-		tag: 'form',
-		action: 'login',
-		method: 'post',
-		onsubmit: 'handleFormSubmit(event)',
+		components.login.body.el.remove();
+
+		jsl.dom.add(document.body, components.home.body);
+	},
+	children: [{
+		tag: 'legend',
+		text: 'Login'
+	}, {
+		tag: 'div',
+		className: 'mb-2',
 		children: [{
-			tag: 'legend',
-			text: 'Login'
+			tag: 'input',
+			type: 'text',
+			className: 'form-control',
+			name: 'username',
+			placeholder: 'Username',
+			required: true,
+			autocomplete: 'username',
+			minlength: '2',
+			maxlength: '30'
+		}]
+	}, {
+		tag: 'div',
+		className: 'mb-2',
+		children: [{
+			tag: 'input',
+			type: 'password',
+			className: 'form-control',
+			name: 'password',
+			placeholder: 'Password',
+			required: true,
+			autocomplete: 'current-password',
+			pattern: '^(?=.*[a-zA-Z])(?=.*\\d).+$',
+			minlength: '5',
+			maxlength: '30'
 		}, {
 			tag: 'div',
-			className: 'mb-2',
+			className: 'form-text',
 			children: [{
-				tag: 'input',
-				type: 'text',
-				className: 'form-control',
-				name: 'username',
-				placeholder: 'Username',
-				required: true,
-				autocomplete: 'username',
-				minlength: '2',
-				maxlength: '30'
-			}]
-		}, {
-			tag: 'div',
-			className: 'mb-2',
-			children: [{
-				tag: 'input',
-				type: 'password',
-				className: 'form-control',
-				name: 'password',
-				placeholder: 'Password',
-				required: true,
-				autocomplete: 'current-password',
-				pattern: '^(?=.*[a-zA-Z])(?=.*\\d).+$',
-				minlength: '5',
-				maxlength: '30'
+				tag: 'div',
+				children: [{
+					tag: 'span',
+					text: 'Must contain at least '
+				}, {
+					tag: 'b', // or 'strong' for semantic importance
+					text: 'one letter'
+				}, {
+					tag: 'span',
+					text: ' and '
+				}, {
+					tag: 'b', // or 'strong' for semantic importance
+					text: 'one number'
+				}]
 			}, {
 				tag: 'div',
-				className: 'form-text',
+				text: 'Guest login is guest and 2bemyguestlogin'
+			}, {
+				tag: 'div',
+				className: 'flex-r',
 				children: [{
+					tag: 'button',
+					type: 'submit',
+					className: 'btn btn-primary norm-btn',
+					text: 'Login'
+				}, {
 					tag: 'div',
+					className: 'center-y',
+					style: {
+						margin: '0.3rem'
+					},
 					children: [{
-						tag: 'span',
-						text: 'Must contain at least '
-					}, {
-						tag: 'b', // or 'strong' for semantic importance
-						text: 'one letter'
-					}, {
-						tag: 'span',
-						text: ' and '
-					}, {
-						tag: 'b', // or 'strong' for semantic importance
-						text: 'one number'
+						tag: 'input',
+						type: 'checkbox',
+						id: 'create-user-checkbox'
 					}]
 				}, {
 					tag: 'div',
-					text: 'Guest login is guest and 2bemyguestlogin'
+					className: 'center-y',
+					text: 'Create new user'
 				}]
 			}]
-		}, {
-			tag: 'div',
-			className: 'flex-r',
-			children: [{
-				tag: 'button',
-				type: 'submit',
-				className: 'btn btn-primary norm-btn',
-				text: 'Login'
-			}, {
+		}]
+	}]
+});
+
+page = headerTitle => ({
+	body: {
+		tag: 'div',
+		id: 'body',
+		children: [
+			components.header(headerTitle),
+			{
 				tag: 'div',
-				className: 'center-y',
-				style: {
-					margin: '0.3rem'
-				},
+				id: 'content',
+				children: []	
+			}, {
+				tag: 'footer',
+				id: 'footer',
 				children: [{
-					tag: 'input',
-					type: 'checkbox',
-					id: 'create-user-checkbox'
+					tag: 'div',
+					className: 'flex-r',
+					children: []
 				}]
-			}, {
-				tag: 'div',
-				className: 'center-y',
-				text: 'Create new user'
-			}]
-		}]
-	},
-
-	footer: {
-		tag: 'footer',
-		children: [{
-			tag: 'div',
-			className: 'flex-r',
-			children: []
-		}]
+			}
+		]
 	}
-}
+})
 
+components.login = (() => {
+	const obj = page('Login page');
+	obj.body.children[1].children.push(createForm());
+	return obj
+})();
+
+components.login.body.children[2].children[0].children.push({ tag: 'div', text: 'Login footer'  });
 
 const bottomBtn = imgFilename => ({
 	tag: 'div',
@@ -151,19 +175,9 @@ const cameraBtn = imgFilename => {
 	return obj;
 };
 
-components.login.footer.children[0].children.push(bottomBtn('home-button.png'), cameraBtn('camera-button.png'), bottomBtn('profile-button.png'));
+components.home = page('Tillit');
 
-components.login.content = {
-	tag: 'div',
-	id: 'content',
-	children: [components.login.form]
-};
-
-components.login.body = {
-	tag: 'div',
-	id: 'body',
-	children: [components.login.header, components.login.content, components.login.footer]
-};
+components.home.body.children[2].children[0].children.push(bottomBtn('home-button.png'), cameraBtn('camera-button.png'), bottomBtn('profile-button.png'));
 
 document.addEventListener('DOMContentLoaded', function() {
 	jsl.dom.add(document.body, components.login.body);
