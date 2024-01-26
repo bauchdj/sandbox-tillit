@@ -149,6 +149,8 @@ components.login = (() => {
 	return obj
 })();
 
+components.login.body.children[1].className = 'login';
+
 components.login.body.children[2].children[0].children.push({ tag: 'div', text: 'Login footer'  });
 
 const bottomBtn = imgFilename => ({
@@ -176,6 +178,173 @@ const cameraBtn = imgFilename => {
 };
 
 components.home = page('Tillit');
+
+components.home.body.children[1].className = 'home';
+
+components.home.body.children[1].innerHTML = `
+<table><tbody><tr>
+    <td style="/* width: 100%; *//* height: 100%; *//* background: white; */flex-direction: column;/* justify-content: flex-start; *//* align-items: flex-start; */gap: 20px;/* display: inline-flex; */">
+    <div style="width: 393px; height: 1px; position: relative; opacity: 0; background: #F5F5F5"></div>
+    <div style="align-self: stretch; height: 43px; padding-left: 24px; padding-right: 24px; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 12px; display: flex">
+        <div style="align-self: stretch; justify-content: space-between; align-items: flex-start; display: inline-flex">
+            <div style="/* color: #2B2B2B; */font-size: 23px;font-family: Space Grotesk;font-weight: 700;word-wrap: break-word">$25.87</div>
+            <div style="width: 20px; height: 20px; position: relative">
+                <div style="width: 10.40px; height: 18px; left: 5.60px; top: 1px; position: absolute; background: #3E7F68"></div>
+            </div>
+        </div>
+        <div style="align-self: stretch; justify-content: space-between; align-items: flex-end; display: inline-flex">
+            <div style="height: 11px; justify-content: flex-start; align-items: center; gap: 8px; display: flex">
+                <div style="/* color: #666666; */font-size: 16px;font-family: Space Grotesk;font-weight: 500;word-wrap: break-word">Walmart</div>
+                <div style="width: 4px; align-self: stretch; padding-top: 2px; justify-content: center; align-items: center; gap: 10px; display: flex">
+                    <div style="width: 4px; height: 4px; background: #D9D9D9; border-radius: 9999px"></div>
+                </div>
+                <div style="width: 43px;align-self: stretch;/* color: #666666; */font-size: 12px;font-family: Space Grotesk;font-weight: 400;word-wrap: break-word">5 items</div>
+            </div>
+            <div style="/* color: #666666; */font-size: 12px;font-family: Space Grotesk;font-weight: 400;word-wrap: break-word">Jan 22, 2024</div>
+        </div>
+    </div>
+    
+</td>
+</tr><tr>
+    <td style="/* width: 100%; *//* height: 100%; *//* background: white; */flex-direction: column;/* justify-content: flex-start; *//* align-items: flex-start; */gap: 20px;/* display: inline-flex; */">
+    <div style="width: 393px; height: 1px; position: relative; opacity: 0; background: #F5F5F5"></div>
+    <div style="align-self: stretch; height: 43px; padding-left: 24px; padding-right: 24px; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 12px; display: flex">
+        <div style="align-self: stretch; justify-content: space-between; align-items: flex-start; display: inline-flex">
+            <div style="/* color: #2B2B2B; */font-size: 23px;font-family: Space Grotesk;font-weight: 700;word-wrap: break-word">$25.87</div>
+            <div style="width: 20px; height: 20px; position: relative">
+                <div style="width: 10.40px; height: 18px; left: 5.60px; top: 1px; position: absolute; background: #3E7F68"></div>
+            </div>
+        </div>
+        <div style="align-self: stretch; justify-content: space-between; align-items: flex-end; display: inline-flex">
+            <div style="height: 11px; justify-content: flex-start; align-items: center; gap: 8px; display: flex">
+                <div style="/* color: #666666; */font-size: 16px;font-family: Space Grotesk;font-weight: 500;word-wrap: break-word">Walmart</div>
+                <div style="width: 4px; align-self: stretch; padding-top: 2px; justify-content: center; align-items: center; gap: 10px; display: flex">
+                    <div style="width: 4px; height: 4px; background: #D9D9D9; border-radius: 9999px"></div>
+                </div>
+                <div style="width: 43px;align-self: stretch;/* color: #666666; */font-size: 12px;font-family: Space Grotesk;font-weight: 400;word-wrap: break-word">5 items</div>
+            </div>
+            <div style="/* color: #666666; */font-size: 12px;font-family: Space Grotesk;font-weight: 400;word-wrap: break-word">Jan 22, 2024</div>
+        </div>
+    </div>
+    
+</td>
+</tr><tr>
+    <td style="/* width: 100%; *//* height: 100%; *//* background: white; */flex-direction: column;/* justify-content: flex-start; *//* align-items: flex-start; */gap: 20px;/* display: inline-flex; */">
+    <div style="width: 393px; height: 1px; position: relative; opacity: 0; background: #F5F5F5"></div>
+    <div style="align-self: stretch; height: 43px; padding-left: 24px; padding-right: 24px; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 12px; display: flex">
+        <div style="align-self: stretch; justify-content: space-between; align-items: flex-start; display: inline-flex">
+            <div style="/* color: #2B2B2B; */font-size: 23px;font-family: Space Grotesk;font-weight: 700;word-wrap: break-word">$25.87</div>
+            <div style="width: 20px; height: 20px; position: relative">
+                <div style="width: 10.40px; height: 18px; left: 5.60px; top: 1px; position: absolute; background: #3E7F68"></div>
+            </div>
+        </div>
+        <div style="align-self: stretch; justify-content: space-between; align-items: flex-end; display: inline-flex">
+            <div style="height: 11px; justify-content: flex-start; align-items: center; gap: 8px; display: flex">
+                <div style="/* color: #666666; */font-size: 16px;font-family: Space Grotesk;font-weight: 500;word-wrap: break-word">Walmart</div>
+                <div style="width: 4px; align-self: stretch; padding-top: 2px; justify-content: center; align-items: center; gap: 10px; display: flex">
+                    <div style="width: 4px; height: 4px; background: #D9D9D9; border-radius: 9999px"></div>
+                </div>
+                <div style="width: 43px;align-self: stretch;/* color: #666666; */font-size: 12px;font-family: Space Grotesk;font-weight: 400;word-wrap: break-word">5 items</div>
+            </div>
+            <div style="/* color: #666666; */font-size: 12px;font-family: Space Grotesk;font-weight: 400;word-wrap: break-word">Jan 22, 2024</div>
+        </div>
+    </div>
+    
+</td>
+</tr><tr>
+    <td style="/* width: 100%; *//* height: 100%; *//* background: white; */flex-direction: column;/* justify-content: flex-start; *//* align-items: flex-start; */gap: 20px;/* display: inline-flex; */">
+    <div style="width: 393px; height: 1px; position: relative; opacity: 0; background: #F5F5F5"></div>
+    <div style="align-self: stretch; height: 43px; padding-left: 24px; padding-right: 24px; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 12px; display: flex">
+        <div style="align-self: stretch; justify-content: space-between; align-items: flex-start; display: inline-flex">
+            <div style="/* color: #2B2B2B; */font-size: 23px;font-family: Space Grotesk;font-weight: 700;word-wrap: break-word">$25.87</div>
+            <div style="width: 20px; height: 20px; position: relative">
+                <div style="width: 10.40px; height: 18px; left: 5.60px; top: 1px; position: absolute; background: #3E7F68"></div>
+            </div>
+        </div>
+        <div style="align-self: stretch; justify-content: space-between; align-items: flex-end; display: inline-flex">
+            <div style="height: 11px; justify-content: flex-start; align-items: center; gap: 8px; display: flex">
+                <div style="/* color: #666666; */font-size: 16px;font-family: Space Grotesk;font-weight: 500;word-wrap: break-word">Walmart</div>
+                <div style="width: 4px; align-self: stretch; padding-top: 2px; justify-content: center; align-items: center; gap: 10px; display: flex">
+                    <div style="width: 4px; height: 4px; background: #D9D9D9; border-radius: 9999px"></div>
+                </div>
+                <div style="width: 43px;align-self: stretch;/* color: #666666; */font-size: 12px;font-family: Space Grotesk;font-weight: 400;word-wrap: break-word">5 items</div>
+            </div>
+            <div style="/* color: #666666; */font-size: 12px;font-family: Space Grotesk;font-weight: 400;word-wrap: break-word">Jan 22, 2024</div>
+        </div>
+    </div>
+    
+</td>
+</tr><tr>
+    <td style="/* width: 100%; *//* height: 100%; *//* background: white; */flex-direction: column;/* justify-content: flex-start; *//* align-items: flex-start; */gap: 20px;/* display: inline-flex; */">
+    <div style="width: 393px; height: 1px; position: relative; opacity: 0; background: #F5F5F5"></div>
+    <div style="align-self: stretch; height: 43px; padding-left: 24px; padding-right: 24px; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 12px; display: flex">
+        <div style="align-self: stretch; justify-content: space-between; align-items: flex-start; display: inline-flex">
+            <div style="/* color: #2B2B2B; */font-size: 23px;font-family: Space Grotesk;font-weight: 700;word-wrap: break-word">$25.87</div>
+            <div style="width: 20px; height: 20px; position: relative">
+                <div style="width: 10.40px; height: 18px; left: 5.60px; top: 1px; position: absolute; background: #3E7F68"></div>
+            </div>
+        </div>
+        <div style="align-self: stretch; justify-content: space-between; align-items: flex-end; display: inline-flex">
+            <div style="height: 11px; justify-content: flex-start; align-items: center; gap: 8px; display: flex">
+                <div style="/* color: #666666; */font-size: 16px;font-family: Space Grotesk;font-weight: 500;word-wrap: break-word">Walmart</div>
+                <div style="width: 4px; align-self: stretch; padding-top: 2px; justify-content: center; align-items: center; gap: 10px; display: flex">
+                    <div style="width: 4px; height: 4px; background: #D9D9D9; border-radius: 9999px"></div>
+                </div>
+                <div style="width: 43px;align-self: stretch;/* color: #666666; */font-size: 12px;font-family: Space Grotesk;font-weight: 400;word-wrap: break-word">5 items</div>
+            </div>
+            <div style="/* color: #666666; */font-size: 12px;font-family: Space Grotesk;font-weight: 400;word-wrap: break-word">Jan 22, 2024</div>
+        </div>
+    </div>
+    
+</td>
+</tr><tr>
+    <td style="/* width: 100%; *//* height: 100%; *//* background: white; */flex-direction: column;/* justify-content: flex-start; *//* align-items: flex-start; */gap: 20px;/* display: inline-flex; */">
+    <div style="width: 393px; height: 1px; position: relative; opacity: 0; background: #F5F5F5"></div>
+    <div style="align-self: stretch; height: 43px; padding-left: 24px; padding-right: 24px; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 12px; display: flex">
+        <div style="align-self: stretch; justify-content: space-between; align-items: flex-start; display: inline-flex">
+            <div style="/* color: #2B2B2B; */font-size: 23px;font-family: Space Grotesk;font-weight: 700;word-wrap: break-word">$25.87</div>
+            <div style="width: 20px; height: 20px; position: relative">
+                <div style="width: 10.40px; height: 18px; left: 5.60px; top: 1px; position: absolute; background: #3E7F68"></div>
+            </div>
+        </div>
+        <div style="align-self: stretch; justify-content: space-between; align-items: flex-end; display: inline-flex">
+            <div style="height: 11px; justify-content: flex-start; align-items: center; gap: 8px; display: flex">
+                <div style="/* color: #666666; */font-size: 16px;font-family: Space Grotesk;font-weight: 500;word-wrap: break-word">Walmart</div>
+                <div style="width: 4px; align-self: stretch; padding-top: 2px; justify-content: center; align-items: center; gap: 10px; display: flex">
+                    <div style="width: 4px; height: 4px; background: #D9D9D9; border-radius: 9999px"></div>
+                </div>
+                <div style="width: 43px;align-self: stretch;/* color: #666666; */font-size: 12px;font-family: Space Grotesk;font-weight: 400;word-wrap: break-word">5 items</div>
+            </div>
+            <div style="/* color: #666666; */font-size: 12px;font-family: Space Grotesk;font-weight: 400;word-wrap: break-word">Jan 22, 2024</div>
+        </div>
+    </div>
+    
+</td>
+</tr><tr>
+    <td style="/* width: 100%; *//* height: 100%; *//* background: white; */flex-direction: column;/* justify-content: flex-start; *//* align-items: flex-start; */gap: 20px;/* display: inline-flex; */">
+    <div style="width: 393px; height: 1px; position: relative; opacity: 0; background: #F5F5F5"></div>
+    <div style="align-self: stretch; height: 43px; padding-left: 24px; padding-right: 24px; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 12px; display: flex">
+        <div style="align-self: stretch; justify-content: space-between; align-items: flex-start; display: inline-flex">
+            <div style="/* color: #2B2B2B; */font-size: 23px;font-family: Space Grotesk;font-weight: 700;word-wrap: break-word">$25.87</div>
+            <div style="width: 20px; height: 20px; position: relative">
+                <div style="width: 10.40px; height: 18px; left: 5.60px; top: 1px; position: absolute; background: #3E7F68"></div>
+            </div>
+        </div>
+        <div style="align-self: stretch; justify-content: space-between; align-items: flex-end; display: inline-flex">
+            <div style="height: 11px; justify-content: flex-start; align-items: center; gap: 8px; display: flex">
+                <div style="/* color: #666666; */font-size: 16px;font-family: Space Grotesk;font-weight: 500;word-wrap: break-word">Walmart</div>
+                <div style="width: 4px; align-self: stretch; padding-top: 2px; justify-content: center; align-items: center; gap: 10px; display: flex">
+                    <div style="width: 4px; height: 4px; background: #D9D9D9; border-radius: 9999px"></div>
+                </div>
+                <div style="width: 43px;align-self: stretch;/* color: #666666; */font-size: 12px;font-family: Space Grotesk;font-weight: 400;word-wrap: break-word">5 items</div>
+            </div>
+            <div style="/* color: #666666; */font-size: 12px;font-family: Space Grotesk;font-weight: 400;word-wrap: break-word">Jan 22, 2024</div>
+        </div>
+    </div>
+    
+</td>
+</tr></tbody></table>
+`
 
 components.home.body.children[2].children[0].children.push(bottomBtn('home-button.png'), cameraBtn('camera-button.png'), bottomBtn('profile-button.png'));
 

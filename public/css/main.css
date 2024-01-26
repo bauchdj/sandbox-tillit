@@ -5,13 +5,22 @@
 	margin: 0;
 }
 
-#content {
+#content.login {
 	flex: auto;
 	margin: 1rem;
 	display: flex;
 	justify-content: center;
 	flex-wrap: wrap;
 	align-content: center;
+}
+
+
+#content.home {
+	overflow: 'auto';
+	margin: 0;
+	flex: auto;
+	display: flex;
+	justify-content: center;
 }
 
 header,
