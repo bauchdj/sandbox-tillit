@@ -53,8 +53,8 @@ createForm = () => ({
 			placeholder: 'Username',
 			required: true,
 			autocomplete: 'username',
-			minlength: '2',
-			maxlength: '30'
+			//minlength: '2',
+			//maxlength: '30'
 		}]
 	}, {
 		tag: 'div',
@@ -67,9 +67,9 @@ createForm = () => ({
 			placeholder: 'Password',
 			required: true,
 			autocomplete: 'current-password',
-			pattern: '^(?=.*[a-zA-Z])(?=.*\\d).+$',
-			minlength: '5',
-			maxlength: '30'
+			//pattern: '^(?=.*[a-zA-Z])(?=.*\\d).+$',
+			//minlength: '5',
+			//maxlength: '30'
 		}, {
 			tag: 'div',
 			className: 'form-text',
